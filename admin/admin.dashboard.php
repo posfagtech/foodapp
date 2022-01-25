@@ -1,16 +1,10 @@
 <?php 
 session_start();
 include "../config/config.php";
-if($_SESSION['admin_id']){
-    // mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-  $sql = mysqli_query($conn, "SELECT * FROM admin_table WHERE admin_id='". $_SESSION['admin_id']."'");
-    while($row = $sql->fetch_assoc()){
-    echo '<button style="color:blue">'."welocme" .$row['admin_name'].'</button>';
-    }
-}else {
-    echo "bad";
-};
-
+$success=$_SESSION["success"];
+if($success==$_SESSION["success"]){
+   $name= $_SESSION["admin_name"];
+}
 
 ?>
 
@@ -34,14 +28,14 @@ if($_SESSION['admin_id']){
         <div class="d-flex" id="wrapper">
             <!-- Sidebar -->
              <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">name</div>
+                <div class="sidebar-heading border-bottom bg-light"><?php echo $name ?></div>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="">Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="" id="addproduct">Add Products</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="product.veiw.php" id="viewproduct">view Product</a>
                      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="">Events</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="">Profile</a>
-                    <a class="list-group-item list-group-item-action list-group-item-danger p-3" href="">Logout</a>
+                    <a class="list-group-item list-group-item-action list-group-item-danger p-3" href="logout.php">Logout</a>
                 </div>
             </div> 
              <!-- Page content wrapper -->
@@ -75,7 +69,7 @@ if($_SESSION['admin_id']){
                    
                     <div id="login-page" class="row">
                      <div class="col s12 z-depth-4 card-panel"> 
-                    <form class="login form" action="product.route.php" method="post"> 
+                    <form class="login form" action="product.route.php" method="post" enctype="multipart/form-data"> 
                     <div class="form-group" style="color:red">
                         <label for="productname" >Product Name</label>
                         <input type="text" class="form-control" name="productname" placeholder="Enter Product Name">

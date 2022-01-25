@@ -1,4 +1,12 @@
-
+<?php
+session_start();
+include "../config/config.php";
+// $error=$_SESSION["error"];
+if(isset( $_SESSION["error"])){
+   $errormessage="hummm.....Username or Password not correct";
+}
+    
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +43,15 @@
 <body class="blue">
 <p>Please fill in your credentials to login.</p>
 
+<center>
 
+        	<div style="color:red; background:white; padding:20px">
+         		<?php echo $errormessage  ?>
+         	</div>
+         
+         		
+         <br>
+        </center>
 
   <!-- Start Page Loading -->
   <div id="loader-wrapper">
@@ -104,3 +120,11 @@
 
 </body>
 </html>
+<?php
+// } else{
+
+// }
+
+
+
+?>
