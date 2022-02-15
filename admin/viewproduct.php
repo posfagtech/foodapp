@@ -1,5 +1,8 @@
 <?php 
 session_start();
+$id = $_GET['id'];
+$sql = "SELECT * FROM product_table where $id=product_id";
+$result = $mysqli -> query($sql);
 
 ?>
 
