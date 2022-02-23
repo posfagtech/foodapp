@@ -15,17 +15,20 @@
   <meta name="msapplication-TileColor" content="#00bcd4">
   <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
   <!-- For Windows Phone -->
-
+  <link href="css/chartist.min.css" rel="stylesheet">
+    <link href="css/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.min.css" rel="stylesheet" />
 
   <!-- CORE CSS-->
   
-  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="css1/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="css1/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
     <!-- Custome CSS-->    
-    <link href="css/custom/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="css/layouts/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="css1/custom/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="css1/layouts/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
 
-  <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="js1/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -126,6 +129,26 @@
         </div>
         <div class="row margin">
           <div class="input-field col s12">
+            <i class="mdi mdi-store prefix"></i>
+            <input name="adminshop"  id="shop" type="text"placeholder="Shop Name" required />
+            <label for="shop" class="center-align"></label>
+			<div class="errorTxt2"></div>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>			
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi mdi-map-marker prefix"></i>
+            <input name="adminlocation"  id="location" type="text"placeholder="Location" required />
+            <label for="location" class="center-align"></label>
+			<div class="errorTxt2"></div>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>			
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
             <input name="adminpswd" id="password" type="password" placeholder="Password" required>
             <label for="password"></label>
@@ -162,18 +185,18 @@
     ================================================ -->
 
   <!-- jQuery Library -->
-  <script type="text/javascript" src="js/plugins/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="js1/plugins/jquery-1.11.2.min.js"></script>
   <!--materialize js-->
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js1/materialize.min.js"></script>
   <!--scrollbar-->
-  <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-     <script type="text/javascript" src="js/plugins/jquery-validation/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery-validation/additional-methods.min.js"></script>
+  <script type="text/javascript" src="js1/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+     <script type="text/javascript" src="js1/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js1/plugins/jquery-validation/additional-methods.min.js"></script>
      
       <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="js/plugins.min.js"></script>
+    <script type="text/javascript" src="js1/plugins.min.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
-    <script type="text/javascript" src="js/custom-script.js"></script>
+    <script type="text/javascript" src="js1/custom-script.js"></script>
     <script type="text/javascript">
 // Disable form submissions if there are invalid fields
 (function() {
@@ -206,6 +229,14 @@
                 required: true,
                 minlength: 5				
             },
+            location: {
+                required: true,
+                minlength: 5				
+            },
+            shop: {
+                required: true,
+                minlength: 5				
+            },
 			password: {
 				required: true,
 				minlength: 5
@@ -228,6 +259,14 @@
 				required: "Enter password",
 				minlength: "Minimum 5 characters are required."
 			},
+            location: {
+                required: "Enter your Store address",
+                minlength: "Minimum 5 characters are required."
+            },
+            shop: {
+                required: "Enter Your Store name",
+                minlength: "Minimum 5 characters are required."
+            },
             phone:{
 				required: "Specify contact number.",
 				minlength: "Minimum 4 characters are required."

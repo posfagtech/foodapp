@@ -3,7 +3,7 @@ session_start();
 include "../config/config.php";
 // $error=$_SESSION["error"];
 if(isset( $_SESSION["error"])){
-   $errormessage="hummm.....Username or Password not correct";
+   $errormessage="Email or Password not correct";
 }
     
     ?>

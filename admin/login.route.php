@@ -20,7 +20,8 @@ if ($result->num_rows > 0) {
   }else{
     session_start();
     $_SESSION["error"]=true;
-    header("location:login2.php");
+    $errormessage="Email or Password not correct";
+    header("location:login.php?message=$errormessage");
   }
 
 

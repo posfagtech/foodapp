@@ -1,4 +1,8 @@
-
+<?php
+if(isset($_GET['message'])){
+  $msg = $_GET['message'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,19 +25,19 @@
 
   <!-- CORE CSS-->
   
-  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="css1/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="css1/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
     <!-- Custome CSS-->    
-    <link href="css/custom/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="css/layouts/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="css1/custom/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="css1/layouts/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
 
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-  <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="js1/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
   
 </head>
 
 <body class="blue">
-<p>Please fill in your credentials to login.</p>
+<p class="center">Please fill in your credentials to login.</p>
 
 
 
@@ -50,6 +54,7 @@
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
       <form method="post" action="login.route.php" class="login-form" id="form">
+        <p class="center" style="color:red; background:white; padding:20px"><?php if(!empty($msg)){echo $msg;}?></p>
         <div class="row">
           <div class="input-field col s12 center">
             <p class="center login-form-text"> Login Here</p>
@@ -69,8 +74,24 @@
             <label for="password"></label>
           </div>
         </div>
-        <div class="row">
+        <div class="row margin">
+          <div class="input-field col s12">
+            <!-- <i class="mdi-action-lock-outline prefix"></i>
+            <input name="password" id="password" type="password" placeholder="Email"> -->
+            <input type="checkbox" placeholder="Remember Me" name="checked" id="checked" />
+            <label for="checked"> Remember Me</label>
+          </div>
+        </div> <br> <br>
+        <div class="row mt-5">
 			<a href="javascript:void(0);" onclick="document.getElementById('form').submit();" class="btn waves-effect blue col s12">Login</a>
+          </div>
+          <style>
+            .float-right{
+              float: right;
+            }
+          </style>
+          <div class="float-right">
+            <a href="forgetpassword.php">Forget Password?</a>
           </div>
 		  		<div class="row">
           <div class="input-field col s6 m6 l6">
@@ -91,16 +112,16 @@
     ================================================ -->
 
   <!-- jQuery Library -->
-  <script type="text/javascript" src="js/plugins/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="js1/plugins/jquery-1.11.2.min.js"></script>
   <!--materialize js-->
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js1/materialize.min.js"></script>
   <!--scrollbar-->
-  <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script type="text/javascript" src="js1/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
       <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="js/plugins.min.js"></script>
+    <script type="text/javascript" src="js1/plugins.min.js"></script>
     <!--custom-script.js - Add your own theme custom JS-->
-    <script type="text/javascript" src="js/custom-script.js"></script>
+    <script type="text/javascript" src="js1/custom-script.js"></script>
 
 </body>
 </html>
