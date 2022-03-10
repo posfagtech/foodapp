@@ -1,248 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="msapplication-tap-highlight" content="no">
-  <title>Register</title>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Register</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../admin/image/favico.png" />
+        <!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css"rel="stylesheet"/>
+        
+ </head>
+ <!-- Navigation-->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!"><img src="../admin/image/logo.png" class="rounded" alt="Cinque Terre" width="304" height="95"> 
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="../client">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    
+                    </ul>
+                </nav>
+<body>
+ 
+<section class="h-100 h-custom gradient-custom-2">
+<form  class="was-validated" action="regprocess.php" method="POST">
 
-  <!-- Favicons-->
-  <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
-  <!-- Favicons-->
-  <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
-  <!-- For iPhone -->
-  <meta name="msapplication-TileColor" content="#00bcd4">
-  <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
-  <!-- For Windows Phone -->
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <h3 class="fw-normal mb-5" style="color: rgb(237,127,18);">General Infomation</h3>
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+                      <div class="form-outline">
+                        <input type="text" name="adminfirstname"id="form3Examplev2" class="form-control form-control-lg" required />
+                        <label class="form-label" for="form3Examplev2">First name</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                         </div>
+                          </div>
+                            <div class="col-md-6 mb-4 pb-2">
+                              <div class="form-outline">
+                              <input type="text" name="adminlastname" id="form3Examplev3" class="form-control form-control-lg" required />
+                            <label class="form-label" for="form3Examplev3">Last name</label>
+                            <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                           </div>
+                           </div>
+                  </div>
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline">
+                      <input type="text" id="form3Examplev4" name="adminshop" class="form-control form-control-lg" required />
+                      <div class="valid-feedback">Valid.</div>
+                      <div class="invalid-feedback">Please fill out this field.</div>
+                      <label class="form-label" for="form3Examplev4">kitchen Name</label>
+                      
+                    </div>
+                  </div>
 
+                 <div class="row"> 
+              
+                    <br>
+                    <div>
+                      <br>
+                    <label for="formFileLg" class="form-label">upload your logo or picture</label>
+                    <input class="form-control form-control-lg" id="formFileLg" type="file" name="adminlogo">
+                  </div>
+                    <div class="mb-4 pb-2">
+                    <br>
+                    <div class="input-group form-outline" mb-3>
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control form-control-lg" id="password" name="adminpassword" placeholder="Password (8 characters minimum)" minlength="8" required>
+                                <span class="input-group-text"><i class="far fa-eye-slash" id="togglePassword"></i></span>
+                                <label class="form-label" for="form3Examplev4">Choose Password</label>
+                                <div class="valid-feedback">Valid.</div>
+                              <div class="invalid-feedback">Please fill out this field.</div>
+                              </div>
+                  </div>
+                  </div>
 
-  <!-- CORE CSS-->
-  
-  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <!-- Custome CSS-->    
-    <link href="css/custom/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="css/layouts/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
+                </div>
+              </div>
+              <!-- contact details -->
+              <div class="col-lg-6 bg-indigo text-white">
+                <div class="p-5">
+                  <h3 class="fw-normal mb-5">Contact Details</h3>
 
-  <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style type="text/css">
-  .input-field div.error{
-    position: relative;
-    top: -1rem;
-    left: 0rem;
-    font-size: 0.8rem;
-    color:#FF4081;
-    -webkit-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    -o-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-  .input-field label.active{
-      width:100%;
-  }
-  .left-alert input[type=text] + label:after, 
-  .left-alert input[type=password] + label:after, 
-  .left-alert input[type=email] + label:after, 
-  .left-alert input[type=url] + label:after, 
-  .left-alert input[type=time] + label:after,
-  .left-alert input[type=date] + label:after, 
-  .left-alert input[type=datetime-local] + label:after, 
-  .left-alert input[type=tel] + label:after, 
-  .left-alert input[type=number] + label:after, 
-  .left-alert input[type=search] + label:after, 
-  .left-alert textarea.materialize-textarea + label:after{
-      left:0px;
-  }
-  .right-alert input[type=text] + label:after, 
-  .right-alert input[type=password] + label:after, 
-  .right-alert input[type=email] + label:after, 
-  .right-alert input[type=url] + label:after, 
-  .right-alert input[type=time] + label:after,
-  .right-alert input[type=date] + label:after, 
-  .right-alert input[type=datetime-local] + label:after, 
-  .right-alert input[type=tel] + label:after, 
-  .right-alert input[type=number] + label:after, 
-  .right-alert input[type=search] + label:after, 
-  .right-alert textarea.materialize-textarea + label:after{
-      right:70px;
-  }
-  </style> 
-</head>
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline form-white">
+                      <input type="text" name="adminlocation" id="form3Examplea2" name="" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="form3Examplea2">kitchen Location</label>
+                    </div>
+                  </div>
 
-<body class="blue">
-  <!-- Start Page Loading -->
-  <div id="loader-wrapper">
-      <div id="loader"></div>        
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-  </div>
-  <!-- End Page Loading -->
+                  
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline form-white">
+                      <input type="text" name="admincountry" id="form3Examplea6" class="form-control form-control-lg" required/>
+                      <label class="form-label" for="form3Examplea6">Your citizenship</label>
+                      <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                  </div>
 
+                  <div class="row">
+                    <div class="col-md-5 mb-4 pb-2">
 
+                      <div class="form-outline form-white">
+                        <input type="text" name="admincountrycode" id="form3Examplea7" class="form-control form-control-lg" required />
+                        <label class="form-label" for="form3Examplea7">Code +</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                      </div>
 
-  <div id="login-page" class="row">
-    <div class="col s12 z-depth-4 card-panel">
-      <form class="needs-validation" id="formValidate" method="post" action="regprocess.php" novalidate="novalidate" class="col s12">
-        <div class="row">
-          <div class="input-field col s12 center">
-            <h4>Register</h4>
-            <p class="center">Join us now!</p>
+                    </div>
+                    <div class="col-md-7 mb-4 pb-2">
+
+                      <div class="form-outline form-white">
+                        <input type="number" name="adminnumber" id="form3Examplea8" class="form-control form-control-lg" required />
+                        <label class="form-label" for="form3Examplea8">Phone Number</label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="mb-4">
+                    <div class="form-outline form-white">
+                      <input type="email" name="adminemail" id="form3Examplea9" class="form-control form-control-lg" required />
+                      <label class="form-label" for="form3Examplea9">Your Email</label>
+                      <div class="valid-feedback">Email field is valid!</div>
+                       <div class="invalid-feedback">Email field cannot be blank!</div>
+
+                    </div>
+                    
+                  </div>
+
+                  <div class="form-check d-flex justify-content-start mb-4 pb-3">
+                    <input class="form-check-input me-3" type="checkbox" id="form2Example3c" required/>
+                    <label class="form-check-label text-white" for="form2Example3">
+                      I do accept the <a href="#!" class="text-white"><u>Terms and Conditions</u></a> of your site.
+                    </label>
+                  </div>
+                  <button type="submit" name="submit" class="btn btn-light btn-lg">Register</button>
+                  
+                              <div class="row">
+                      <div class="input-field col s6 m6 l6">
+                        <p class="margin medium-small">Have an account?<a href="login.php">Login</a></p>
+                      </div>   
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <!-- <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-social-person-outline prefix"></i>
-            <input name="username" id="username" type="text"  data-error=".errorTxt1">
-            <label for="username" class="center-align">Username</label>
-			<div class="errorTxt1"></div>			
-          </div>
-        </div> -->
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-social-person prefix"></i>
-            <input name="adminname"  id="name" type="text"placeholder="Name" required>
-            <label for="name" class="center-align"></label>
-			<div class="errorTxt2"></div>
-            <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>			
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-communication-email prefix"></i>
-            <!-- <i class="fa fa-envelope" style="font-size:48px;color:red"></i> -->
-            <label for="adminemail"></label>
-            <input name="adminemail" id="email" type="email" placeholder="Email" required >
-            <label for="adminemail">Email</label>
-			<div class="errorTxt3"></div>
-            <div class="valid-feedback">Valid.</div>
-             <div class="invalid-feedback">Please fill out this field.</div>			
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-action-lock-outline prefix"></i>
-            <input name="adminpswd" id="password" type="password" placeholder="Password" required>
-            <label for="password"></label>
-			<div class="errorTxt3"></div>
-            <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>			
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-communication-phone prefix"></i>
-            <input name="adminnumber" id="phone" type="number" placeholder="Phone" required>
-            <label for="phone"></label>
-			<div class="errorTxt4"></div>			
-          </div>
-        </div>		
-        <div class="row">
-          <div class="input-field col s12">
-			<!-- <a href="#" name="submit" class="btn waves-effect waves-light col s12">Login</a> -->
-            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-          </div>
-          <div class="input-field col s12">
-            <p class="margin center medium-small sign-up">Already have an account? <a href="login.php">Login</a></p>
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
-
-
-
-  <!-- ================================================
-    Scripts
-    ================================================ -->
-
-  <!-- jQuery Library -->
-  <script type="text/javascript" src="js/plugins/jquery-1.11.2.min.js"></script>
-  <!--materialize js-->
-  <script type="text/javascript" src="js/materialize.min.js"></script>
-  <!--scrollbar-->
-  <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-     <script type="text/javascript" src="js/plugins/jquery-validation/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery-validation/additional-methods.min.js"></script>
-     
-      <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="js/plugins.min.js"></script>
-    <!--custom-script.js - Add your own theme custom JS-->
-    <script type="text/javascript" src="js/custom-script.js"></script>
-    <script type="text/javascript">
-// Disable form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Get the forms we want to add validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-
-
-
-    $("#formValidate").validate({
-        rules: {
-            username: {
-                required: true,
-                minlength: 5
-            },
-            name: {
-                required: true,
-                minlength: 5				
-            },
-			password: {
-				required: true,
-				minlength: 5
-			},
-            phone: {
-				required: true,
-				minlength: 4
-			},
-        },
-        messages: {
-            username: {
-                required: "Enter username",
-                minlength: "Minimum 5 characters are required."
-            },
-            name: {
-                required: "Enter name",
-                minlength: "Minimum 5 characters are required."
-            },
-			password: {
-				required: "Enter password",
-				minlength: "Minimum 5 characters are required."
-			},
-            phone:{
-				required: "Specify contact number.",
-				minlength: "Minimum 4 characters are required."
-			},		
-        },
-        errorElement : 'div',
-        errorPlacement: function(error, element) {
-          var placement = $(element).data('error');
-          if (placement) {
-            $(placement).append(error)
-          } else {
-            error.insertAfter(element);
-          }
-        }
-     });
-    </script>
+</fom>
+</section>
+ <!-- Bootstrap core JS-->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"
+></script>
 </body>
+
 </html>
+<!-- css -->
+<style>
+  @media (min-width: 1025px) {
+  .h-custom {
+    height: 200vh !important;
+  }
+}
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+}
+.card-registration .select-arrow {
+  top: 20px;
+  bottom: 10px;
+}
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #a1c4fd;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1))
+}
+
+.bg-indigo {
+  background-color: rgb(237,127,18);
+}
+@media (min-width: 992px) {
+  .card-registration-2 .bg-indigo {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+}
+@media (max-width: 991px) {
+  .card-registration-2 .bg-indigo {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+}
+  </style>
+
+  <script>
+    const togglePassword = document.querySelector("#togglePassword");
+const password = document.querySelector("#password");
+
+togglePassword.addEventListener("click", function () {
+   
+  // toggle the type attribute
+  const type = password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+  // toggle the eye icon
+  this.classList.toggle('fa-eye');
+  this.classList.toggle('fa-eye-slash');
+});
+  </script>

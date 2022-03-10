@@ -1,7 +1,7 @@
 <?php
 include "../config/config.php";
-$email = htmlspecialchars($_POST['email']);
-$password = htmlspecialchars($_POST['password']); 
+$email = htmlspecialchars($_POST['adminemail']);
+$password = htmlspecialchars($_POST['adminpassword']); 
 
 
 $sql = "SELECT * FROM admin_table WHERE admin_email ='$email' and  admin_password='$password'";
@@ -20,7 +20,8 @@ if ($result->num_rows > 0) {
   }else{
     session_start();
     $_SESSION["error"]=true;
-    header("location:login2.php");
+    $errormessage="Email or Password not correct";
+    header("location:login.php?message=$errormessage");
   }
 
 

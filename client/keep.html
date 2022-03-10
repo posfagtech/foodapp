@@ -1,0 +1,165 @@
+<section class="py-5 bg-light">
+            <div class="container px-4 px-lg-5 mt-5">
+                <h2 class="fw-bolder mb-4">Related products</h2>
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Fancy Product</h5>
+                                    <!-- Product price-->
+                                    $40.00 - $80.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Special Item</h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$20.00</span>
+                                    $18.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Sale Item</h5>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$50.00</span>
+                                    $25.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Popular Item</h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    $40.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+
+
+
+
+
+            <!-- login -->
+            <div id="login-page" class="row">
+                <div class="col s12 z-depth-4 card-panel">
+                  <form method="post" action="login.route.php" class="login-form" id="form">
+                    <p class="center" style="color:red; background:white; padding:20px"><?php if(!empty($msg)){echo $msg;}?></p>
+                    <div class="row">
+                      <div class="input-field col s12 center">
+                        <p class="center login-form-text"> Login Here</p>
+                      </div>
+                    </div>
+                    <div class="row margin">
+                      <div class="input-field col s12">
+                        <i class="mdi-social-person-outline prefix"></i>
+                        <input name="adminemail" id="username" type="" placeholder="Email">
+                        <label for="mail" class="center-align"></label>
+                      </div>
+                    </div>
+                    <div class="row margin">
+                      <div class="input-field col s12">
+                        <i class="mdi-action-lock-outline prefix"></i>
+                        <input name="adminpassword" id="password" type="password" placeholder="Email">
+                        <label for="password"></label>
+                      </div>
+                    </div>
+                    <div class="row margin">
+                      <div class="input-field col s12">
+                        <!-- <i class="mdi-action-lock-outline prefix"></i>
+                        <input name="password" id="password" type="password" placeholder="Email"> -->
+                        <input type="checkbox" placeholder="Remember Me" name="checked" id="checked" />
+                        <label for="checked"> Remember Me</label>
+                      </div>
+                    </div> <br> <br>
+                    <div class="row mt-5">
+                        <a href="javascript:void(0);" onclick="document.getElementById('form').submit();" class="btn waves-effect blue col s12">Login</a>
+                      </div>
+                      <style>
+                        .float-right{
+                          float: right;
+                        }
+                      </style>
+                      <div class="float-right">
+                        <a href="forgetpassword.php">Forget Password?</a>
+                      </div>
+                              <div class="row">
+                      <div class="input-field col s6 m6 l6">
+                        <p class="margin medium-small">New here?<a href="admin.register.php">Register Now!</a></p>
+                      </div>         
+                    </div>
+                    </div>
+            
+            
+                  </form>
+                </div>
+              </div>
+            
