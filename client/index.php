@@ -102,7 +102,7 @@ if ($result->num_rows > 0){
 
 ?>
                     <div class="col mb-5">
-                        <div class="card h-100">
+                        <div class="card h-80">
                             <!-- Sale badge-->
                             <div class="badge text-white position-absolute"  style="top: 0.5rem; right: 0.5rem; background:rgb(237,127,18)">
                             <?php echo ucfirst($storename)?></div>
