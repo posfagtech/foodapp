@@ -7,8 +7,6 @@ product_price,product_image1,
  store_name, admin_location
 FROM admin_product p JOIN admin_table a ON a.admin_id=p.admin_id LIMIT 9";
 $result = $conn->query($sql);
-// echo mysqli_error($sql);
-// while($row = mysqli_fetch_array($result)) {
 
 
 
