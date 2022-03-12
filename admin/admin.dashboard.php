@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include "../config/config.php";
+require_once "../config/config.php";
 $success=$_SESSION["success"];
 if($success==$_SESSION["success"]){
    $name= $_SESSION["admin_name"];

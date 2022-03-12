@@ -65,7 +65,7 @@
                               <input type="text" name="adminlastname" id="form3Examplev3" class="form-control form-control-lg" required />
                             <label class="form-label" for="form3Examplev3">Last name</label>
                             <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
                            </div>
                            </div>
                   </div>

@@ -1,11 +1,11 @@
 <?php 
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname   = "myFood";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname   = "myFood";
 
 // Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 // if ($conn->connect_error) {
@@ -15,7 +15,8 @@
 
 
 
-//Get Heroku ClearDB connection information
+// Get Heroku ClearDB connection information
+
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server = $cleardb_url["host"];
 $cleardb_username = $cleardb_url["user"];

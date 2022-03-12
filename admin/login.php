@@ -74,9 +74,10 @@ if(isset($_GET['message'])){
                                 <label class="form-label" for="form3Examplev4">Choose Password</label>
                                 <div class="valid-feedback">Valid.</div>
                                 <div class="invalid-feedback">Password field cannot be blank!</div>
-</div>
-<br><br><button type="submit" name="submit" class="btn btn-light btn-lg">Login</button>
-      <div class="float-right">
+                    </div>
+                      <br><br>
+                    <button type="submit" name="submit" class="btn btn-light btn-lg">Login</button>
+                    <div class="float-right">
                         <a href="forgetpassword.php">Forget Password?</a>
                       </div>
                               <div class="row">

@@ -5,7 +5,7 @@ include "../config/config.php";
 $sql="SELECT product_id,product_name,product_description,
 product_price,product_image1,
  store_name, admin_location
-FROM admin_product p JOIN admin_table a ON a.admin_id=p.admin_id LIMIT 12";
+FROM admin_product p JOIN admin_table a ON a.admin_id=p.admin_id LIMIT 9";
 $result = $conn->query($sql);
 // echo mysqli_error($sql);
 // while($row = mysqli_fetch_array($result)) {
@@ -47,7 +47,7 @@ if ($result->num_rows > 0){
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="shop.hph">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" style="color:rgb(237,127,18)"  data-bs-toggle="dropdown" aria-expanded="false">Choose country</a>
@@ -102,12 +102,12 @@ if ($result->num_rows > 0){
 
 ?>
                     <div class="col mb-5">
-                        <div class="card h-100">
+                        <div class="card ">
                             <!-- Sale badge-->
                             <div class="badge text-white position-absolute"  style="top: 0.5rem; right: 0.5rem; background:rgb(237,127,18)">
                             <?php echo ucfirst($storename)?></div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="../admin/<?php echo $product_image?>" alt="..." width="50" height="170" />
+                            <img class="card-img-top" src="../admin/<?php echo $product_image?>" alt="..." width="50" height="140" />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -121,7 +121,7 @@ if ($result->num_rows > 0){
                                         <div class="bi-star-fill"></div>
                                         <div class="bi-star-fill"></div>
                                     </div>
-                                    <img src="../admin/image/location.jpg" height="50px" /><?php echo $locaion?><br>
+                                    <img src="../admin/image/location.jpg" height="30px" /><?php echo $locaion?><br>
                                     <!-- Product price-->
                                     <span class="text-muted"><i>TL</i><?php echo $product_price?></span>
                                     
