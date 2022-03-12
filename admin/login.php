@@ -45,6 +45,7 @@ if(isset($_GET['message'])){
 <body>
  
 <section class="h-100 h-custom gradient-custom-2">
+    <p class="center" style="color:red; background:white; padding:20px"><?php if(!empty($msg)){echo $msg;}?></p>
 <form  class="was-validated" action="login.route.php" method="POST">
 
   <div class="container py-5 h-100">
@@ -57,7 +58,7 @@ if(isset($_GET['message'])){
               <div class="col-lg-6 bg-indigo text-white">
                 <div class="p-5">
                   <h3 class="fw-normal mb-5">Login</h3>
-                  <p class="center" style="color:red; background:white; padding:20px"><?php if(!empty($msg)){echo $msg;}?></p>
+                
                   <div class="mb-4">
                     <div class="form-outline form-white">
                       <input type="email" name="adminemail" id="form3Examplea9" class="form-control form-control-lg" required />
