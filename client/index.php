@@ -6,7 +6,7 @@ $sql="SELECT product_id,product_name,product_description,
 product_price,product_image1,
  store_name, admin_location
 FROM admin_product p JOIN admin_table a ON a.admin_id=p.admin_id LIMIT 9";
-$result = $conn->query($sql);
+$result = $conn->query($sql); 
 
 
 

@@ -7,7 +7,7 @@ if($success==$_SESSION["success"]){
    $id = $_SESSION["admin_id"];
 }
 
-$query = "SELECT * FROM admin_table WHERE id ='$id'";
+$query = "SELECT * FROM admin_table WHERE admin_id =$id";
 $result = $conn->query($query);
 if($result){
     // output data of each row
