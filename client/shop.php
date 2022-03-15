@@ -14,6 +14,7 @@ $sql="SELECT * FROM admin_product p JOIN admin_table a ON (p.admin_id= a.admin_i
             $productname= $row["product_name"];
             $productprice= $row["product_price"];
             $adminid=$row["admin_id"];
+            $adminlocation=$row["admin_location"];
             $productdescription= $row["product_description"];
             $_SESSION['productid']=$row['product_id'];
             $_SESSION['adminid']=$row['admin_id'];
@@ -83,11 +84,15 @@ $sql="SELECT * FROM admin_product p JOIN admin_table a ON (p.admin_id= a.admin_i
       <div class="modal-body">
       <form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="recipient-name" class="col-form-label">kitchen Name:</label>
+            <input type="text" class="form-control" id="recipient-name" required>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
+            <label for="recipient-name" class="col-form-label">Your Email:</label>
+            <input type="email" class="form-control" id="recipient-name" required>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label" required>Message:</label>
             <textarea class="form-control" id="message-text"></textarea>
           </div>
         </form>
@@ -112,36 +117,31 @@ $sql="SELECT * FROM admin_product p JOIN admin_table a ON (p.admin_id= a.admin_i
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="../admin/<?php echo $productimage?> " alt="..." /></div>
                     <div class="col-md-6" style="background:rgb(237,127,18); color:white">
-                        <div class="display-6 fw-bolder" style="background:rgb(237,127,18); color:white"><?php echo $kitchename?></div>
-                        <h1 class="small mb-1"><?php echo $productname?></h1>
+                        <div class="display-6 fw-bolder" style="background:rgb(237,127,18); color:white"><?php echo strtoupper($kitchename)?></div>
+                        <!-- <h1 class="small mb-1"><?php echo strtoupper($productname)?></h1> -->
+                        <h6 class="samll mb-1" style="font-size:12px"><?php echo strtoupper($adminlocation)?></h6>
                         <div class="fs-5 mb-5">
-                            <!-- <span class="text-decoration-line-through"><?php echo   $product_price?></span> -->
+                            <!-- <span class="text-decoration-line-through"><?php echo $product_price?></span> -->
                             <span><i class="text-success">TL</i><?php echo  $productprice?></span>
                         </div>
                         <hr>
-                        <p class="lead"><?php echo  $productdescription?>
-                            <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p> -->
+                        <p class="lead"><?php echo strtoupper($productdescription)?>
                         <div class="d-flex">
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
                             <!-- <a href=""  class="btn btn-outline-dark bg-success text-white flex-shrink-0" type="button"> -->
                                 <!-- Chat Seller -->
                                 <button type="button" class="btn btn-outline-success bg-success text-white flex-shrink-0" data-bs-toggle="modal" data-bs-target="#myModal">
-                                chat
+                                Order Food
                                 <i class="bi-cart-fill me-1"></i>
                             </button>
+                           
                             </div>
+                            <br> 
                             <?php
                             include 'chat.php';
                             ?>
-                            <!-- </a> -->
-                            <!-- sjsjsjsjsj -->
-                            <!-- Button to Open the Modal -->
-
-
-
-                            <!-- ddddfghvhgghu -->
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -186,7 +186,7 @@ $sql="SELECT * FROM admin_product p JOIN admin_table a ON (p.admin_id= a.admin_i
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder"><?php echo $_SESSION['product_name']?></h5>
+                                    <h5 class="fw-bolder"><?php echo strtoupper($_SESSION['product_name'])?></h5>
                                     <!-- Product reviews-->
                                     <div class="d-flex justify-content-center small text-warning mb-2">
                                         <div class="bi-star-fill"></div>

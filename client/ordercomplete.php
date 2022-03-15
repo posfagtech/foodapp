@@ -31,8 +31,8 @@
             <div class="card">
                 <div class="text-left logo p-2 px-5"> <img src="../admin/image/logo.png" width="100"> </div>
                 <div class="invoice p-5">
-                    <h5 class="text-success">Your order Confirmed!</h5> <span class="font-weight-bold d-block mt-4">Dear Customer,</span> 
-                    <span>You order has been confirmed and the seller will contact you shortly!</span>
+                    <h5 class="text-success">Your order Received!</h5> <span class="font-weight-bold d-block mt-4">Dear Customer,</span> 
+                    <span>Your order has been received and the seller will contact you shortly!</span>
                    <br>
                     <!-- <p>We will be sending shipping confirmation email when the item shipped successfully!</p> -->
                     <p class="font-weight-bold mb-0">Thanks for shopping with us!</p> <span style="color:orange">FoodHut Team</span><br>

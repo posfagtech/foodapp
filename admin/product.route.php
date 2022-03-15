@@ -17,17 +17,17 @@ if($_SESSION['admin_id']){
         if($check !== false){
               $_SESSION['feedback']="File is an image - " . $check["mime"] . ".";
               $uploadOk = 1;
-            //   header("location: productErrorHandler.php");
+              header("location: add_product.php");
             }else{
               $_SESSION['feedback']="File is not an image";
-              header("location: productErrorHandler.php");
+              header("location: add_product.php");
                 $uploadOk = 0;
                  }
 
               // Check file size
         if($_FILES["productimage"]["size"] > 500000){
         $_SESSION['feedback']="Sorry, your file is too large.";
-        header("location: productErrorHandler.php");
+        header("location: add_product.php");
         $uploadOk = 0;
 
         } 
@@ -35,14 +35,15 @@ if($_SESSION['admin_id']){
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif" ) {
         $_SESSION['feedback']="Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        header("location: productErrorHandler.php");
+        header("location: add_product.php");
         $uploadOk = 0;
 
         }
             // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-            $_SESSION['feedback']="Sorry, your file was not uploaded.";
-            header("location: productErrorHandler.php");
+            $_SESSION['feedback']="Sorry, your file was not uploaded. this may be because
+            your file is too large and note that JPG, JPEG and PNG are allowed";
+            header("location: add_product.php");
         
         // if everything is ok, try to upload file
             } else {
@@ -59,12 +60,12 @@ if($_SESSION['admin_id']){
 
                 if (move_uploaded_file($_FILES["productimage"]["tmp_name"], $target_file)) {
                     $_SESSION['feedback']= "The file ". htmlspecialchars( basename( $_FILES["productimage"]["name"])). " has been uploaded.";
-                    header("Location: productErrorHandler.php");
+                    header("location: add_product.php");
            
                        
              } else {
             $_SESSION['feedback']="Sorry, there was an error uploading your file.";
-            header("Location: productErrorHandler.php");
+            header("location: add_product.php");
 
         }
         }

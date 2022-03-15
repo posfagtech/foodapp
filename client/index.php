@@ -5,18 +5,13 @@ include "../config/config.php";
 $sql="SELECT product_id,product_name,product_description,
 product_price,product_image1,
  store_name, admin_location
-FROM admin_product p JOIN admin_table a ON a.admin_id=p.admin_id LIMIT 9";
+FROM admin_product p JOIN admin_table a ON a.admin_id=p.admin_id LIMIT 12";
 $result = $conn->query($sql); 
-
-
-
 // echo $row;
 if ($result->num_rows > 0){
     // echo "number of rows: " . $result->num_rows;
  
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -47,7 +42,7 @@ if ($result->num_rows > 0){
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="shop.hph">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" style="color:rgb(237,127,18)"  data-bs-toggle="dropdown" aria-expanded="false">Choose country</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#!">Nigeria Food</a></li>
@@ -59,7 +54,7 @@ if ($result->num_rows > 0){
 
 
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                     <!-- pop over start -->
                     <form class="d-flex">
@@ -102,7 +97,7 @@ if ($result->num_rows > 0){
                     <div class="col mb-5">
                         <div class="card ">
                             <!-- Sale badge-->
-                            <div class="badge text-white position-absolute"  style="top: 0.5rem; right: 0.5rem; background:rgb(237,127,18)">
+                            <div class="badge text-white position-absolute" style="top: 0.5rem; right: 0.5rem; background:rgb(237,127,18)">
                             <?php echo ucfirst($storename)?></div>
                             <!-- Product image-->
                             <img class="card-img-top" src="../admin/<?php echo $product_image?>" alt="..." width="50" height="140" />

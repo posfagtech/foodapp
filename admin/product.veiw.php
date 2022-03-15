@@ -119,7 +119,7 @@ if($_SESSION['admin_id']){
                         </li>
                         <li class="sidebar-item"> 
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="gift.php" aria-expanded="false">
+                                href="add_product.php" aria-expanded="false">
                                 <i class="mdi mdi-plus"></i>
                                     <span class="hide-menu">Add Product</span>
                                 </a>

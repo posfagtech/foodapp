@@ -44,18 +44,18 @@ if(isset($_GET['message'])){
                 </nav>
 <body>
  
-<section class="h-100 h-custom gradient-custom-2">
+<section class="h-100 h-custom">
     <p class="center" style="color:red; background:white; padding:20px"><?php if(!empty($msg)){echo $msg;}?></p>
-<form  class="was-validated" action="login.route.php" method="POST">
+<form  class="was-validated ml-5" style="" action="login.route.php" method="POST">
 
-  <div class="container py-5 h-100">
+  <!-- <div class="container py-5 h-100"> -->
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12">
-        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-          <div class="card-body p-0">
+      <!-- <div class="col-12"> -->
+        <!-- <div class="card card-registration card-registration-2" style="border-radius: 15px;"> -->
+          <!-- <div class="card-body p-0"> -->
             
               <!-- contact details -->
-              <div class="col-lg-6 bg-indigo text-white">
+              <div class="col-lg-6 bg-dark text-white">
                 <div class="p-5">
                   <h3 class="fw-normal mb-5">Login</h3>
                 
@@ -64,7 +64,7 @@ if(isset($_GET['message'])){
                       <input type="email" name="adminemail" id="form3Examplea9" class="form-control form-control-lg" required />
                       <label class="form-label" for="form3Examplea9">Your Email</label>
                       <div class="valid-feedback">Email field is valid!</div>
-                       <div class="invalid-feedback">Email field cannot be blank!</div>
+                       <!-- <div class="invalid-feedback">Email field cannot be blank!</div> -->
                     </div>
                   </div>
                   <br><br>
@@ -74,7 +74,7 @@ if(isset($_GET['message'])){
                                 <span class="input-group-text"><i class="far fa-eye-slash" id="togglePassword"></i></span>
                                 <label class="form-label" for="form3Examplev4">Choose Password</label>
                                 <div class="valid-feedback">Valid.</div>
-                                <div class="invalid-feedback">Password field cannot be blank!</div>
+                                <!-- <div class="invalid-feedback">Password field cannot be blank!</div> -->
                     </div>
                       <br><br>
                     <button type="submit" name="submit" class="btn btn-light btn-lg">Login</button>
@@ -95,6 +95,10 @@ if(isset($_GET['message'])){
   </div>
 </fom>
 </section>
+<br><br><br>
+<footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; FoodHut.online 2021</p></div>
+        </footer>
  <!-- Bootstrap core JS-->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

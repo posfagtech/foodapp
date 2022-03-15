@@ -186,31 +186,37 @@ if($result){
             <div class="page-breadcrumb">
                 <!-- < Page content> -->
                 <div class="container-fluid myproduct" id="product"> 
+                <?php
+                // session_start();
+                if(isset($_SESSION['feedback'])){
+                echo '<h3 class="text-danger"> '.$_SESSION["feedback"].' </h3>';
+            }
+                ?>
                     <h1 class="mt-4">Add your new product Here</h1>
-                   
+               
                     <div id="login-page" class="row">
                      <div class="col s12 z-depth-4 card-panel"> 
                     <form class="login form" action="product.route.php" method="post" enctype="multipart/form-data"> 
                     <div class="form-group" style="color:red">
                         <label for="productname" >Product Name</label>
-                        <input type="text" class="form-control" name="productname" placeholder="Enter Product Name">
+                        <input type="text" class="form-control" name="productname" placeholder="Enter Product Name" required>
                         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                     </div>
                     <div class="form-group" style="color:red">
                         <label for="productprice">Product Price</label>
-                        <input type="text" class="form-control" name="productprice" placeholder="Enter the product price">
+                        <input type="text" class="form-control" name="productprice" placeholder="Enter the product price" required>
                         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                     </div>
                     <div class="form-group" style="color:red">
-                        <label for="comment">Description:Please give details of your product</label>
-                        <textarea class="form-control" rows="5" name="productdescription"> </textarea>
+                        <label for="comment">Description:</label>
+                        <textarea class="form-control" rows="5" name="productdescription" placeholder="Please give details of your product"  maxlength="100" required></textarea>
                     </div>
                     <br>
                     <div class="container">
-                    <input  type='file' name="productimage" style="color:red"/>
+                    <input accept=".jpg, .jpeg, .png, .gif" type='file' name="productimage" style="color:red" required/>
                     <!-- <img id="blah" src="image/default.png" alt="your image" style="width:30%;" /> -->
                     </div>
-                    <button type="" name="imgupload" class="btn btn-success">upload image</button>
+                    <button type="" name="imgupload" class="btn btn-success btn-lg">upload Product</button>
                            <br><br><br>
                            <hr>
                     <!-- <button type="submit" class=" form-control btn btn-primary">upload product</button> -->

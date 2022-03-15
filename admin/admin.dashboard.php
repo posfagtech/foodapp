@@ -52,24 +52,24 @@ if($result){
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         
         <header class="topbar" data-navbarbg="skin6">
-        <img src="image/logo.png" width="100" alt="" srcset="">
+        <!-- <img src="image/logo.png" width="100" alt="" srcset=""> -->
 
-            <nav class="navbar top-navbar navbar-expand-md" style="background:rgb(237,127,18); color:white";>
+            <nav class="navbar top-navbar navbar-expand-md" style="";>
             <br><br><br>
                 <div class="navbar-header" data-logobg="skin6">
                     <a class="navbar-brand" href="admin.dashboard.php">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <?php 
-                            $querys = "SELECT * FROM admin_table WHERE id ='$id'";
-                            $results = $conn->query($querys);
-                            if($results){
+                            $querys = "SELECT * FROM admin_table WHERE admin_id ='$id'";
+                            $result = $conn->query($querys);
+                            if($result){
                                 // output data of each row
-                                while($rows = mysqli_fetch_assoc($results)){
+                                while($rows = mysqli_fetch_assoc($result)){
                                     $logo = $rows['admin_logo'];
 
-                                    if(empty($logo)){
-                                        echo ' <img src="$logo" alt="logo" />';
+                                    if(!empty($logo)){
+                                        echo '<img src="uploads/'.$logo.'" alt="logo" />';
                                     }else{
                                         echo '<i class="fa fa-user"></i>';
                                     }
@@ -130,7 +130,7 @@ if($result){
         
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         
-        <aside class="left-sidebar" data-sidebarbg="skin6" style="background:rgb(237,127,18); color:white">
+        <aside class="left-sidebar" data-sidebarbg="skin6" style="">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->

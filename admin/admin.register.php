@@ -103,7 +103,7 @@
                 </div>
               </div>
               <!-- contact details -->
-              <div class="col-lg-6 bg-indigo text-white">
+              <div class="col-lg-6 bg-dark text-white">
                 <div class="p-5">
                   <h3 class="fw-normal mb-5">Contact Details</h3>
 

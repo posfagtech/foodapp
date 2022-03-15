@@ -19,7 +19,7 @@ $id= $_SESSION['product_id'];
         $message = htmlspecialchars($_POST['buyermessage']);
 
         $sql2 = "INSERT INTO order_table (product_id,admin_id,buyer_location,buyer_phone,buyer_email,buyer_message) VALUES 
-        ('$id','$admini'd,'$location',$num,'$email','$message')";
+        ('$id','$adminid','$location',$num,'$email','$message')";
         if (mysqli_query($conn, $sql2)) {
             header('location: ordercomplete.php');
         } else {
