@@ -7,17 +7,7 @@ if($success==$_SESSION["success"]){
    $id = $_SESSION["admin_id"];
 }
 
-$query = "SELECT * FROM admin_table WHERE admin_id =$id";
-$result = $conn->query($query);
-if($result){
-    // output data of each row
-    while($rows = mysqli_fetch_assoc($result)){
-        $logo = $rows['admin_logo'];
-       
-    }
-    
-    // $rows= count($row);
-}
+
     $sql= "SELECT * FROM admin_product WHERE admin_id = $id";
     $results = $conn->query($sql);
     $rows = $results->num_rows;
@@ -41,7 +31,7 @@ if($result){
     <!-- Custom CSS -->
     <link href="./css/style.min.css" rel="stylesheet" />
     </head>
-    <body style="background:rgb(237,127,18); color:white">
+    <body style=" color:white">
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -60,16 +50,23 @@ if($result){
                     <a class="navbar-brand" href="admin.dashboard.php">
                         <!-- Logo icon -->
                         <b class="logo-icon">
+                            <style>
+                                .logo{
+                                    width: 50px;
+                                    height: 50px;
+                                    border-radius: 10px;
+                                }
+                            </style>
                             <?php 
-                            $querys = "SELECT * FROM admin_table WHERE admin_id ='$id'";
-                            $result = $conn->query($querys);
-                            if($result){
+                            $querysL = "SELECT * FROM admin_table WHERE admin_id ='$id'";
+                            $resultl = $conn->query($querysL);
+                            if($resultl){
                                 // output data of each row
-                                while($rows = mysqli_fetch_assoc($result)){
-                                    $logo = $rows['admin_logo'];
+                                while($rowsl = mysqli_fetch_assoc($resultl)){
+                                    $logo = $rowsl['admin_logo'];
 
                                     if(!empty($logo)){
-                                        echo '<img src="uploads/'.$logo.'" alt="logo" />';
+                                        echo '<img src="uploads/'.$logo.'" class="logo" alt="logo" />';
                                     }else{
                                         echo '<i class="fa fa-user"></i>';
                                     }
@@ -209,18 +206,18 @@ if($result){
                 </div>
             </div>
             <div class="page-breadcrumb">
-                <div class="container mt-5 mb-3">
+                <div class="container mb-3">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="card p-3 mb-2">
+                            <div class="card p-3 mb-2 shadow">
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex flex-row align-items-center">
                                         <div class="icon"> <i class="mdi mdi-cart"></i> </div>
                                         <div class="ms-2 c-details">
-                                            <h4 class="mb-0">Products</h4>
+                                            <h4 class="mb-0">Your Uploaded Products</h4>
                                         </div>
                                     </div>
-                                    <div class="badge"> <span>Design</span> </div>
+                                    <div class="badge"> <span>product uploaded</span> </div>
                                 </div>
                                 <div class="mt-5">
                                     <h3 class="heading"><?php echo $rows;?></h3>
@@ -233,19 +230,19 @@ if($result){
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-md-4">
-                            <div class="card p-3 mb-2">
+                    <div class="col-md-4">
+                            <div class="card p-3 mb-2 shadow">
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex flex-row align-items-center">
                                         <div class="icon"> <i class="bx bxl-dribbble"></i> </div>
                                         <div class="ms-2 c-details">
-                                            <h6 class="mb-0">Dribbble</h6> <span>4 days ago</span>
+                                            <h6 class="mb-0">Orders</h6> <span>4 days ago</span>
                                         </div>
                                     </div>
                                     <div class="badge"> <span>Product</span> </div>
                                 </div>
                                 <div class="mt-5">
-                                    <h3 class="heading">Junior Product<br>Designer-Singapore</h3>
+                                    <h3 class="heading">Order Number</h3>
                                     <div class="mt-5">
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -255,8 +252,8 @@ if($result){
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card p-3 mb-2">
+                        <!-- <div class="col-md-4">
+                            <div class="card p-3 mb-2 shadow">
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex flex-row align-items-center">
                                         <div class="icon"> <i class="bx bxl-reddit"></i> </div>

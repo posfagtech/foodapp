@@ -7,16 +7,9 @@ if($success==$_SESSION["success"]){
 }
 
 $id = $_SESSION["admin_id"];
-$query = "SELECT * FROM admin_table WHERE id ='$id' and  admin_name='$name'";
+$query = "SELECT * FROM admin_table WHERE admin_id ='$id' and  admin_name='$name'";
 $result = $conn->query($query);
 
-if($result){
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)){
-        $logo = $row['admin_logo'];
-        // $
-    }
-}
 
 ?>
 
@@ -54,13 +47,32 @@ if($result){
                     
                     
                     <a class="navbar-brand" href="admin.dashboard.php">
-                        <!-- Logo icon -->
-                        <b class="logo-icon">
-                            <?php if(!empty($logo)){?>
-                                <img src="<?php echo $logo;?>" alt="logo" />
-                            <?php }else{?>
-                                <i class="fa fa-user"></i>
-                            <?php }?>
+                    <b class="logo-icon">
+                    <style>
+                                .logo{
+                                    width: 50px;
+                                    height: 50px;
+                                    border-radius: 10px;
+                                }
+                            </style>
+                            <?php 
+                            $querysL = "SELECT * FROM admin_table WHERE admin_id ='$id'";
+                            $resultl = $conn->query($querysL);
+                            if($resultl){
+                                // output data of each row
+                                while($rowsl = mysqli_fetch_assoc($resultl)){
+                                    $logo = $rowsl['admin_logo'];
+
+                                    if(!empty($logo)){
+                                        echo '<img src="uploads/'.$logo.'" class="logo" alt="logo" />';
+                                    }else{
+                                        echo '<i class="fa fa-user"></i>';
+                                    }
+                                }
+                            
+                            
+                            }?>
+                           
                         </b>
                         <span class="logo-text">
                             <?php echo $name;?>
@@ -189,7 +201,7 @@ if($result){
                 <?php
                 // session_start();
                 if(isset($_SESSION['feedback'])){
-                echo '<h3 class="text-danger"> '.$_SESSION["feedback"].' </h3>';
+                echo '<p class="text-danger"> '.$_SESSION["feedback"].' </p>';
             }
                 ?>
                     <h1 class="mt-4">Add your new product Here</h1>
@@ -199,12 +211,12 @@ if($result){
                     <form class="login form" action="product.route.php" method="post" enctype="multipart/form-data"> 
                     <div class="form-group" style="color:red">
                         <label for="productname" >Product Name</label>
-                        <input type="text" class="form-control" name="productname" placeholder="Enter Product Name" required>
+                        <input type="text" class="form-control" name="productname" placeholder="Enter Product Name" required />
                         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                     </div>
                     <div class="form-group" style="color:red">
                         <label for="productprice">Product Price</label>
-                        <input type="text" class="form-control" name="productprice" placeholder="Enter the product price" required>
+                        <input type="text" class="form-control" name="productprice" placeholder="Enter the product price" required />
                         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                     </div>
                     <div class="form-group" style="color:red">
@@ -216,7 +228,7 @@ if($result){
                     <input accept=".jpg, .jpeg, .png, .gif" type='file' name="productimage" style="color:red" required/>
                     <!-- <img id="blah" src="image/default.png" alt="your image" style="width:30%;" /> -->
                     </div>
-                    <button type="" name="imgupload" class="btn btn-success btn-lg">upload Product</button>
+                    <button type="submit" name="imgupload" class="btn mt-5 mx-auto d-block btn-success btn-block">upload Product</button>
                            <br><br><br>
                            <hr>
                     <!-- <button type="submit" class=" form-control btn btn-primary">upload product</button> -->

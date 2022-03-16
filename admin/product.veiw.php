@@ -27,9 +27,9 @@ if($_SESSION['admin_id']){
     <!-- Custom CSS -->
     <link href="./css/style.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
-  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/7462836d2c.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -46,16 +46,41 @@ if($_SESSION['admin_id']){
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <div class="navbar-header" data-logobg="skin6">
                     
-                    
-                    <a class="navbar-brand" href="admin.dashboard.php">
-                        <!-- Logo icon -->
-                        <b class="logo-icon">
-                            <i class="fa fa-user"></i>
-                        </b>
-                        <span class="logo-text">
-                            <?php echo $name;?>
-                        </span>
-                    </a>
+                <style>
+        .logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+    </style>
+                <a class="navbar-brand" href="admin.dashboard.php">
+                    <!-- Logo icon -->
+                    <b class="logo-icon">
+                        <?php 
+                        // $name= $_SESSION["admin_name"];
+                        $uid = $_SESSION["admin_id"];
+                        $querys = "SELECT * FROM admin_table WHERE admin_id ='$uid'";
+                        $resultL = $conn->query($querys);
+                        if($resultL){
+                            // output data of each row
+                            while($rowL = mysqli_fetch_assoc($resultL)){
+                                $logo = $rowL['admin_logo'];
+
+                                if(!empty($logo)){
+                                    echo ' <img class="logo" src="./uploads/'.$logo.'" alt="'.$logo.'" />';
+                                }else{
+                                    echo '<i class="fa fa-user"></i>';
+                                }
+                            }
+                        
+                        }
+                        ?>
+                        
+                    </b>
+                    <span class="logo-text">
+                        <?php echo $name;?>
+                    </span>
+                </a>
                     
                     
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i

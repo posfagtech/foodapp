@@ -59,7 +59,7 @@ if($_SESSION['admin_id']){
                     };
 
                 if (move_uploaded_file($_FILES["productimage"]["tmp_name"], $target_file)) {
-                    $_SESSION['feedback']= "The file ". htmlspecialchars( basename( $_FILES["productimage"]["name"])). " has been uploaded.";
+                    $_SESSION['feedback']= "New product added successfully and The file ". htmlspecialchars( basename( $_FILES["productimage"]["name"])). " has been uploaded.";
                     header("location: add_product.php");
            
                        

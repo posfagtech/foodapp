@@ -45,13 +45,20 @@ if (isset($_POST['update'])) {
         // $update = "UPDATE `admin_table` SET `admin_name`='',`store_name`='',`admin_password`='',`admin_location`='',`admin_email`='', `admin_logo`='', `admin_phone`='' WHERE ";
 
         $result = mysqli_query($conn, $updates);
-        if (move_uploaded_file($timg, 'uploads/'.$imgs)) {
-            // $both = $target_dir . $img;
-            
-            $msg = "<p class='text-success text-center'>Profile Update</p>";
-        }else{
-            $msg = "<p class='text-danger text-center'>Profile not Update</p>";
+        if(unlink('./uploads/', $image)){
+            if (move_uploaded_file($timg, 'uploads/'.$imgs)) {
+                // $both = $target_dir . $img;
+                
+                $msg = "<p class='text-success text-center'>Profile Update</p>";
+                $_SESSION['feedback']=$msg;
+                header('location: ./profile.php');
+            }else{
+                $msg = "<p class='text-danger text-center'>Profile not Update</p>";
+                $_SESSION['feedback']=$msg;
+                header('location: ./profile.php');
+            }
         }
+        
     }else{
         // $fullname = $fn ." ".$sn;
         // $updates = "UPDATE `admin_table` SET `admin_name`='$fn',`store_name`='$sn',`admin_password`='$pa',`admin_location`='$loca',`admin_email`='$ma', `admin_phone`='$mob' WHERE `admin_id`='$us'";
@@ -62,8 +69,12 @@ if (isset($_POST['update'])) {
         if ($result) {
 
             $msg = "<p class='text-success text-center'>Profile Update, But Image not Uploaded.</p>";
+            $_SESSION['feedback']=$msg;
+            header('location: ./profile.php');
         }else{
             $msg = "<p class='text-danger text-center'>Profile not Update</p>";
+            $_SESSION['feedback']=$msg;
+            header('location: ./profile.php');
         }
     }
     
@@ -106,8 +117,33 @@ if (isset($_POST['update'])) {
                     
                     <a class="navbar-brand" href="admin.dashboard.php">
                         <!-- Logo icon -->
+                        <!-- Logo icon -->
                         <b class="logo-icon">
-                            <i class="fa fa-user"></i>
+                            <style>
+                                .logo{
+                                    width: 50px;
+                                    height: 50px;
+                                    border-radius: 10px;
+                                }
+                            </style>
+                            <?php 
+                            $querysL = "SELECT * FROM admin_table WHERE admin_id ='$uid'";
+                            $resultl = $conn->query($querysL);
+                            if($resultl){
+                                // output data of each row
+                                while($rowsl = mysqli_fetch_assoc($resultl)){
+                                    $logo = $rowsl['admin_logo'];
+
+                                    if(!empty($logo)){
+                                        echo '<img src="uploads/'.$logo.'" class="logo" alt="logo" />';
+                                    }else{
+                                        echo '<i class="fa fa-user"></i>';
+                                    }
+                                }
+                            
+                            
+                            }?>
+                           
                         </b>
                         <span class="logo-text">
                             <?php echo $name;?>
@@ -270,7 +306,10 @@ if (isset($_POST['update'])) {
             <!-- Account details card-->
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
-                <?php echo $msg;?>
+                <?php if (!empty($_SESSION['feedback'])) {
+                    # code...
+                    echo $_SESSION['feedback'];
+                }?>
                 <div class="card-body">
                     <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data">
                         <!-- Form Group (username)-->
