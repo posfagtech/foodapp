@@ -11,6 +11,10 @@ if($success==$_SESSION["success"]){
     $sql= "SELECT * FROM admin_product WHERE admin_id = $id";
     $results = $conn->query($sql);
     $rows = $results->num_rows;
+
+    $order= "SELECT * FROM order_table WHERE product_id = $id";
+    $order_results = $conn->query($order);
+    $order_rows = $order_results->num_rows;
 ?>
 
 
@@ -214,7 +218,7 @@ if($success==$_SESSION["success"]){
                                     <div class="d-flex flex-row align-items-center">
                                         <div class="icon"> <i class="mdi mdi-cart"></i> </div>
                                         <div class="ms-2 c-details">
-                                            <h4 class="mb-0">Your Uploaded Products</h4>
+                                            <h4 class="mb-0">Your Products</h4>
                                         </div>
                                     </div>
                                     <div class="badge"> <span>product uploaded</span> </div>
@@ -242,10 +246,10 @@ if($success==$_SESSION["success"]){
                                     <div class="badge"> <span>Product</span> </div>
                                 </div>
                                 <div class="mt-5">
-                                    <h3 class="heading">Order Number</h3>
+                                    <h3 class="heading"><?php echo $order_rows;?></h3>
                                     <div class="mt-5">
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar" role="progressbar" style="width: <?php echo $order_rows;?>%" aria-valuenow="<?php echo $order_rows;?>" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                         <div class="mt-3"> <span class="text1">42 Applied <span class="text2">of 70 capacity</span></span> </div>
                                     </div>
