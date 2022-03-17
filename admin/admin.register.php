@@ -40,7 +40,7 @@
 <body>
  
 <section class="h-100 h-custom gradient-custom-2">
-<form  class="was-validated" action="regprocess.php" method="POST">
+<form  class="was-validated" action="regprocess.php" method="POST" enctype="multipart/form-data">
 
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -85,7 +85,7 @@
                     <div>
                       <br>
                     <label for="formFileLg" class="form-label">upload your logo or picture</label>
-                    <input class="form-control form-control-lg" id="formFileLg" type="file" name="adminlogo">
+                    <input class="form-control form-control-lg" id="formFileLg" type="file" name="adminlogo" accept=".jpg, .png, .jpeg" />
                   </div>
                     <div class="mb-4 pb-2">
                     <br>

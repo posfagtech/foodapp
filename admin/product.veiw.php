@@ -67,7 +67,7 @@ if($_SESSION['admin_id']){
                                 $logo = $rowL['admin_logo'];
 
                                 if(!empty($logo)){
-                                    echo ' <img class="logo" src="./uploads/'.$logo.'" alt="'.$logo.'" />';
+                                    echo ' <img class="logo" src="./uploads/logo/'.$logo.'" alt="'.$logo.'" />';
                                 }else{
                                     echo '<i class="fa fa-user"></i>';
                                 }

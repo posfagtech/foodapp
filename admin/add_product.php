@@ -47,8 +47,8 @@ $result = $conn->query($query);
                     
                     
                     <a class="navbar-brand" href="admin.dashboard.php">
-                    <b class="logo-icon">
-                    <style>
+                        <b class="logo-icon">
+                            <style>
                                 .logo{
                                     width: 50px;
                                     height: 50px;
@@ -64,7 +64,7 @@ $result = $conn->query($query);
                                     $logo = $rowsl['admin_logo'];
 
                                     if(!empty($logo)){
-                                        echo '<img src="uploads/'.$logo.'" class="logo" alt="logo" />';
+                                        echo '<img src="uploads/logo/'.$logo.'" class="logo" alt="logo" />';
                                     }else{
                                         echo '<i class="fa fa-user"></i>';
                                     }
@@ -228,7 +228,8 @@ $result = $conn->query($query);
                     <input accept=".jpg, .jpeg, .png, .gif" type='file' name="productimage" style="color:red" required/>
                     <!-- <img id="blah" src="image/default.png" alt="your image" style="width:30%;" /> -->
                     </div>
-                    <button type="submit" name="imgupload" class="btn mt-5 mx-auto d-block btn-success btn-block">upload Product</button>
+                    <button type="submit" name="imgupload" class="btn btn-success mt-5 mx-auto text-white mx-auto d-block">Upload Product</button>
+                    <!-- <input type="submit" value="Upload Product" class=""/> -->
                            <br><br><br>
                            <hr>
                     <!-- <button type="submit" class=" form-control btn btn-primary">upload product</button> -->

@@ -45,8 +45,8 @@ if (isset($_POST['update'])) {
         // $update = "UPDATE `admin_table` SET `admin_name`='',`store_name`='',`admin_password`='',`admin_location`='',`admin_email`='', `admin_logo`='', `admin_phone`='' WHERE ";
 
         $result = mysqli_query($conn, $updates);
-        if(unlink('./uploads/', $image)){
-            if (move_uploaded_file($timg, 'uploads/'.$imgs)) {
+        if(unlink('./uploads/logo/', $image)){
+            if (move_uploaded_file($timg, 'uploads/logo/'.$imgs)) {
                 // $both = $target_dir . $img;
                 
                 $msg = "<p class='text-success text-center'>Profile Update</p>";
@@ -135,7 +135,7 @@ if (isset($_POST['update'])) {
                                     $logo = $rowsl['admin_logo'];
 
                                     if(!empty($logo)){
-                                        echo '<img src="uploads/'.$logo.'" class="logo" alt="logo" />';
+                                        echo '<img src="uploads/logo/'.$logo.'" class="logo" alt="logo" />';
                                     }else{
                                         echo '<i class="fa fa-user"></i>';
                                     }
@@ -315,7 +315,7 @@ if (isset($_POST['update'])) {
                         <!-- Form Group (username)-->
                         <div class="mb-3">
                             <div class="p-3" id="preview1">
-                                <img src="./uploads/<?php echo $image;?>"  width="300px" height="auto" alt="logo" />                            
+                                <img src="./uploads/logo/<?php echo $image;?>"  width="300px" height="auto" alt="logo" />                            
                             </div><br>
                             <label class="small mb-1" for="inputUsername">Logo</label>
                             <input  type='file' name="photo" id="image1" style="color:red" accept=".jpg, .gif, .jpeg, .png" />

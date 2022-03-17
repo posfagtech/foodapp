@@ -9,7 +9,8 @@ $location =   htmlspecialchars($_POST['adminlocation']);
 $country = htmlspecialchars($_POST['admincountry']);
 $shopname = htmlspecialchars($_POST['adminshop']);
 $pswd =  htmlspecialchars($_POST['adminpassword']);
-$logo =  htmlspecialchars($_POST['adminlogo']);
+$logo =  htmlspecialchars($_FILES['adminlogo']['name']);
+$tlogo = $_FILES['adminlogo']['tmp_name'];
 
 
 $conn = new mysqli($servername, $username, $password,$dbname);
@@ -20,7 +21,34 @@ $sql = "INSERT INTO admin_table (admin_name, admin_secondname, admin_email, admi
 VALUES ('$fname','$lname','$email','$num','$pswd','$location', '$shopname','$country','$countrycode','$logo')";
 
   if (mysqli_query($conn, $sql)) {
+    move_uploaded_file($tlogo, 'uploads/logo/'.$logo);
     echo '
+    <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Redirect</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../admin/image/favico.png" />
+        <!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css"rel="stylesheet"/>
+        
+ </head>
     <div class="spinner-grow text-success" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>

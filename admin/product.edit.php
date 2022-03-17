@@ -58,7 +58,31 @@ if(isset($_GET['id'])){
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
                         <b class="logo-icon">
-                            <i class="fa fa-user"></i>
+                            <style>
+                                .logo{
+                                    width: 50px;
+                                    height: 50px;
+                                    border-radius: 10px;
+                                }
+                            </style>
+                            <?php 
+                            $querysL = "SELECT * FROM admin_table WHERE admin_id ='$id'";
+                            $resultl = $conn->query($querysL);
+                            if($resultl){
+                                // output data of each row
+                                while($rowsl = mysqli_fetch_assoc($resultl)){
+                                    $logo = $rowsl['admin_logo'];
+
+                                    if(!empty($logo)){
+                                        echo '<img src="uploads/logo/'.$logo.'" class="logo" alt="logo" />';
+                                    }else{
+                                        echo '<i class="fa fa-user"></i>';
+                                    }
+                                }
+                            
+                            
+                            }?>
+                           
                         </b>
                         <span class="logo-text">
                             <?php echo $name;?>

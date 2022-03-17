@@ -12,7 +12,7 @@ if($success==$_SESSION["success"]){
     $results = $conn->query($sql);
     $rows = $results->num_rows;
 
-    $order= "SELECT * FROM order_table WHERE product_id = $id";
+    $order= "SELECT * FROM order_table WHERE admin_id = $id";
     $order_results = $conn->query($order);
     $order_rows = $order_results->num_rows;
 ?>
@@ -70,7 +70,7 @@ if($success==$_SESSION["success"]){
                                     $logo = $rowsl['admin_logo'];
 
                                     if(!empty($logo)){
-                                        echo '<img src="uploads/'.$logo.'" class="logo" alt="logo" />';
+                                        echo '<img src="uploads/logo/'.$logo.'" class="logo" alt="logo" />';
                                     }else{
                                         echo '<i class="fa fa-user"></i>';
                                     }
