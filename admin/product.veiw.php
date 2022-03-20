@@ -159,6 +159,14 @@ if($_SESSION['admin_id']){
                         </li>
                         <li class="sidebar-item"> 
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="orders_view.php" aria-expanded="false">
+                                <i class="mdi mdi-eye-outline me-1"></i>
+                                <span
+                                    class="hide-menu">Orders</span>
+                                </a>
+                        </li>
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="./profile.php" aria-expanded="false">
                                 <i class="ti-user"></i>
                                 <span

@@ -48,7 +48,7 @@ if($success==$_SESSION["success"]){
         <header class="topbar" data-navbarbg="skin6">
         <!-- <img src="image/logo.png" width="100" alt="" srcset=""> -->
 
-            <nav class="navbar top-navbar navbar-expand-md" style="";>
+            <nav class="navbar top-navbar navbar-expand-md">
             <br><br><br>
                 <div class="navbar-header" data-logobg="skin6">
                     <a class="navbar-brand" href="admin.dashboard.php">
@@ -131,7 +131,7 @@ if($success==$_SESSION["success"]){
         
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         
-        <aside class="left-sidebar" data-sidebarbg="skin6" style="">
+        <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
@@ -158,6 +158,14 @@ if($success==$_SESSION["success"]){
                                 <i class="mdi mdi-heart-outline me-1"></i>
                                 <span
                                     class="hide-menu">View Products</span>
+                                </a>
+                        </li>
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="orders_view.php" aria-expanded="false">
+                                <i class="mdi mdi-eye-outline me-1"></i>
+                                <span
+                                    class="hide-menu">Orders</span>
                                 </a>
                         </li>
                         <li class="sidebar-item"> 
@@ -218,10 +226,10 @@ if($success==$_SESSION["success"]){
                                     <div class="d-flex flex-row align-items-center">
                                         <div class="icon"> <i class="mdi mdi-cart"></i> </div>
                                         <div class="ms-2 c-details">
-                                            <h4 class="mb-0">Your Products</h4>
+                                            <h4 class="mb-0">All Products</h4>
                                         </div>
                                     </div>
-                                    <div class="badge"> <span>product uploaded</span> </div>
+                                    <!-- <div class="badge"> <span>product uploaded</span> </div> -->
                                 </div>
                                 <div class="mt-5">
                                     <h3 class="heading"><?php echo $rows;?></h3>
@@ -229,7 +237,7 @@ if($success==$_SESSION["success"]){
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" style="width: <?php echo $rows;?>%" aria-valuenow="<?php echo $rows;?>" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <div class="mt-3"> <span class="text1">32 Applied <span class="text2">of 50 capacity</span></span> </div>
+                                        <div class="mt-3 text-secondary"> <a href="./product.veiw.php"><span class="text1 text-success">View <span class="text2">Your Products</span></span></a> </div>
                                     </div>
                                 </div>
                             </div>
@@ -240,10 +248,10 @@ if($success==$_SESSION["success"]){
                                     <div class="d-flex flex-row align-items-center">
                                         <div class="icon"> <i class="bx bxl-dribbble"></i> </div>
                                         <div class="ms-2 c-details">
-                                            <h6 class="mb-0">Orders</h6> <span>4 days ago</span>
+                                            <h6 class="mb-0">All Orders</h6>
                                         </div>
                                     </div>
-                                    <div class="badge"> <span>Product</span> </div>
+                                    <!-- <div class="badge"> <span>Product</span> </div> -->
                                 </div>
                                 <div class="mt-5">
                                     <h3 class="heading"><?php echo $order_rows;?></h3>
@@ -251,7 +259,7 @@ if($success==$_SESSION["success"]){
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" style="width: <?php echo $order_rows;?>%" aria-valuenow="<?php echo $order_rows;?>" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <div class="mt-3"> <span class="text1">42 Applied <span class="text2">of 70 capacity</span></span> </div>
+                                        <div class="mt-3 text-secondary"><a href="./orders_view.php"> <span class="text1 text-success">View <span class="text2">All Orders</span></span></a> </div>
                                     </div>
                                 </div>
                             </div>

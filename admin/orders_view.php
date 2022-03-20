@@ -1,28 +1,18 @@
-<?php
+<?php 
 session_start();
 include "../config/config.php";
-// echo $_SESSION['admin_id'];
-// if($success===$_SESSION["success"]){
-// }
-$name= $_SESSION["admin_name"];
-if(isset($_GET['id'])){
-    $id=$_GET["id"];
-    $sql= "SELECT * FROM admin_product WHERE $id=product_id";
-    $result = $conn->query($sql);
-   
-    if ($result->num_rows > 0){
-        while($row = $result->fetch_assoc()) {
-            $productname= $row["product_name"];
-            $productprice= $row["product_price"];
-            $productdescription= $row["product_description"];
-            $_SESSION['productid']=$row['product_id'];
-            $image = $row['product_image1'];
-            
-          }
- 
-    
+$success=$_SESSION["success"];
+if($success==$_SESSION["success"]){
+   $name= $_SESSION["admin_name"];
+}
+
+$id = $_SESSION["admin_id"];
+$query = "SELECT * FROM order_table WHERE admin_id ='$id'";
+$result = $conn->query($query);
+
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,9 +21,10 @@ if(isset($_GET['id'])){
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <meta name="robots" content="noindex,nofollow" />
         <title>Admin Dashboard</title> 
-         <!-- Favicon-->
-         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
    <!-- Custom CSS -->
    <link href="./css/chartist.min.css" rel="stylesheet">
     <link href="./css/chartist-plugin-tooltip.css" rel="stylesheet">
@@ -55,8 +46,7 @@ if(isset($_GET['id'])){
                 <div class="navbar-header" data-logobg="skin6">
                     
                     
-                    <a class="navbar-brand" href="index.html">
-                        <!-- Logo icon -->
+                    <a class="navbar-brand" href="admin.dashboard.php">
                         <b class="logo-icon">
                             <style>
                                 .logo{
@@ -108,7 +98,7 @@ if(isset($_GET['id'])){
                         
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-face rounded-circle"></i> <?php echo $name;?>
+                                <i class="fa fa-list"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="./profile.php"><i class="ti-user m-r-5 m-l-5"></i>
@@ -151,7 +141,7 @@ if(isset($_GET['id'])){
                         </li>
                         <li class="sidebar-item active"> 
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="gift.php" aria-expanded="false">
+                                href="./add_product.php" aria-expanded="false">
                                 <i class="mdi mdi-plus"></i>
                                     <span class="hide-menu">Add Product</span>
                                 </a>
@@ -208,56 +198,98 @@ if(isset($_GET['id'])){
         
         
         <!-- Page wrapper  -->
+        
         <div class="page-wrapper">
             
             <!-- Bread crumb and right sidebar toggle -->
             
             <div class="page-breadcrumb">
-             <!-- Page content wrapper -->
-                <div id="page-content-wrapper">
-                    <!-- < Page content> -->
-                    <div class="container-fluid myproduct" id="product"> 
-                        <h1 class="mt-4">Edit Product</h1>
-                    
-                        <div id="login-page" class="row">
-                        <div class="col s12 z-depth-4 card-panel"> 
-                        <form class="login form" action="product.update.php" method="post" enctype="multipart/form-data"> 
-                        <div class="form-group" style="color:red">
-                            <label for="productname" >Product Name</label>
-                            <input type="text" class="form-control" name="productname" value="<?php echo $productname ?>" placeholder="Enter Product Name">
-                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                        </div>
-                        <div class="form-group" style="color:red">
-                            <label for="productprice">Product Price</label>
-                            <input type="text" class="form-control" value="<?php echo $productprice?>" name="productprice" placeholder="Enter the product price">
-                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                        </div>
-                        <div class="form-group" style="color:red">
-                            <label for="comment">Description:Please give details of your product</label>
-                            <textarea class="form-control"  rows="5" name="productdescription"><?php echo htmlspecialchars($productdescription)?></textarea>
-                        </div>
-                        <br>
-                        <div class="container row">
-                        <div class="p-3" id="preview1">
-                            <img src="<?php echo $image;?>"  width="300px" height="auto" alt="<?php echo $image;?>" />                            
-                        </div><br>
-                        <input  type='file' name="productimage" id="image1" style="color:red" accept=".jpg, .gif, .jpeg, .png" />
-                        <!-- <img id="blah" src="image/default.png" alt="your image" style="width:30%;" /> -->
-                        </div>
-                        <button type="submit" name="imgupload" class="btn mx-auto btn-block btn-success">upload image</button>
-                        <!-- <button type="submit" class=" form-control btn btn-primary">upload product</button> -->
-                        </form>
-                        </div>
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0 d-flex align-items-center">
+                              <li class="breadcrumb-item"><a href="index.html" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
+                              <li class="breadcrumb-item active" aria-current="page">All Orders</li>
+                            </ol>
+                          </nav>
+                        <h1 class="mb-0 fw-bold">Orders</h1> 
+                    </div>
+                    <div class="col-6">
+                        <div class="text-end upgrade-btn">
                         </div>
                     </div>
                 </div>
-            </div> 
+                <div class="container">
+                    <table class="mt-3 table table-hover">
+                        <thead class="thead-dark">
+                            <th>S/N</th>
+                            <th>Buyers Email</th>
+                            <th>Buyers Phone</th>
+                            <th>Buyers Location</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <?php 
+                                while ($row = $result->fetch_assoc()) {
+                                    # code...
+                               
+                            ?>
+                            <tr>
+                                <td>
+                                    <?php echo @$i +1;?>
+                                </td>
+                                <td>
+                                    <?php echo @$row['buyer_email'];?>
+                                </td>
+                                
+                                <td>
+                                    <?php echo @$row['buyer_phone'];?>
+                                </td>
+                                
+                                <td>
+                                    <?php echo @$row['buyer_location'];?>
+                                </td>
+                                <td>
+                                    <?php echo @$row['date'];?>
+                                </td>
+                                <td>
+                                    <a href="./view_order.php?id=<?php echo $row['order_id']?>" class="btn btn-success text-white">
+                                        <i class="fa fa-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php  }?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- End Container fluid  -->
+            
+            
+            <!-- footer -->
+            
+            <!-- <footer class="footer text-center">
+                All Rights Reserved Designed and Developed by <a
+                    href="https://www..com">Leadcodegiants</a>.
+            </footer> -->
+            
+            <!-- End footer -->
+            
         </div>
-
-
-
+    </div>
+        <!-- End Page wrapper  -->
+        
+    </div>
+        
+        <!-- Bootstrap core JS-->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script> -->
+        <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-<script src="./js/jquery.min.js"></script>
+        <!-- <script src="jquery-3.5.1.min.js"></script> -->
+        
+        <script src="./js/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/app-style-switcher.js"></script>
@@ -272,30 +304,29 @@ if(isset($_GET['id'])){
     <script src="./js/chartist.min.js"></script>
     <script src="./js/chartist-plugin-tooltip.min.js"></script>
     <script src="./js/dashboard.js"></script>
-    <script>
-        function imagePreview1(fileInput) {
-            if (fileInput.files && fileInput.files[0]) {
-                var fileReader = new FileReader();
-                fileReader.onload = function (event) {
-                    $('#preview1').html('<img src="'+event.target.result+'" width="300px" height="auto" />');
-                };
-                fileReader.readAsDataURL(fileInput.files[0]);
-            }
-        }
-        $("#image1").change(function () {
-            imagePreview1(this);
-        });
-    </script>
+<script>
+
+imgInp.onchange = evt => {
+  const [file] = imgInp.files
+  if (file) {
+    blah.src = URL.createObjectURL(file)
+  }
+};
+
+$(document).ready(function(){
+   $("#addproduct").click(function(){
+    $(".myproduct").show();
+ });
+ 
+//  $("#viewproduct").click(function()){
+//     $(".myproduct").hide();
+//   });
+
+});
+</script>
     </body>
 </html>
-<?php 
-    }else{
-        echo "cannot find any product to edit";
-    }
-}else{
-    echo "erro";
-}
-?>
+
 
 
 
