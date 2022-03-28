@@ -2,10 +2,10 @@
 session_start();
 require_once "../config/config.php";
 $success=$_SESSION["success"];
-if($success==$_SESSION["success"]){
+if(!empty($success)){
    $name= $_SESSION["admin_name"];
    $id = $_SESSION["admin_id"];
-}
+
 
 
     $sql= "SELECT * FROM admin_product WHERE admin_id = $id";
@@ -352,7 +352,9 @@ $(document).ready(function(){
 </script>
     </body>
 </html>
-
+<?php }else{
+    header("location: ./login.php");
+}?>
 
 
 

@@ -237,7 +237,7 @@ $result = $conn->query($query);
                             ?>
                             <tr>
                                 <td>
-                                    <?php echo @$i +1;?>
+                                    <?php echo 1+ @$i++;?>
                                 </td>
                                 <td>
                                     <?php echo @$row['buyer_email'];?>
